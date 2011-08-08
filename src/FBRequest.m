@@ -370,4 +370,19 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
   self.state = kFBRequestStateError;
 }
 
+
+#pragma mark NSCopying
+
+- (id)copyWithZone:(NSZone *)zone;
+{
+	FBRequest *copy = [[FBRequest alloc] init];
+	copy.params = [[_params copy] autorelease];
+	copy.url = [[_url copy] autorelease];
+	copy.httpMethod = [[_httpMethod copy] autorelease];
+	copy.responseText = [[_responseText copy] autorelease];
+	
+	return copy;
+}
+
+
 @end
