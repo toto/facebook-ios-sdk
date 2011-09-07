@@ -334,6 +334,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
 // NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+  [self.responseText setLength:0];
 
   NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
   if ([_delegate respondsToSelector:
