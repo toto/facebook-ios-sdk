@@ -1,0 +1,3 @@
+[submodule "Outsourced/JSONKit"]
+	path = Outsourced/JSONKit
+	url = git://github.com/johnezang/JSONKit.git

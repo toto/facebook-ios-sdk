@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		999104351417BDDF00932829 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 999104321417BDDF00932829 /* JSONKit.h */; };
+		999104361417BDDF00932829 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 999104331417BDDF00932829 /* JSONKit.m */; };
 		AA747D9F0F9514B9006C5449 /* facebook_ios_sdk_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* facebook_ios_sdk_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		AEA93B0A11D5293B000A4545 /* FBConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = AEA93B0111D5293B000A4545 /* FBConnect.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		999104311417BDDF00932829 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		999104321417BDDF00932829 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		999104331417BDDF00932829 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		999104341417BDDF00932829 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* facebook_ios_sdk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_ios_sdk_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE3FC32211F19C18001C05F3 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBDialog.bundle; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 		0867D691FE84028FC02AAC07 /* facebook-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				9991040A1417BDDF00932829 /* Outsourced */,
 				08FB77AEFE84172EC02AAC07 /* FBConnect */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -127,6 +134,26 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		9991040A1417BDDF00932829 /* Outsourced */ = {
+			isa = PBXGroup;
+			children = (
+				9991040B1417BDDF00932829 /* JSONKit */,
+			);
+			name = Outsourced;
+			path = ../Outsourced;
+			sourceTree = "<group>";
+		};
+		9991040B1417BDDF00932829 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				999104311417BDDF00932829 /* CHANGELOG.md */,
+				999104321417BDDF00932829 /* JSONKit.h */,
+				999104331417BDDF00932829 /* JSONKit.m */,
+				999104341417BDDF00932829 /* README.md */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
 		AEA93B1311D52959000A4545 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +194,7 @@
 				AEA93B2811D52959000A4545 /* SBJsonBase.h in Headers */,
 				AEA93B2A11D52959000A4545 /* SBJsonParser.h in Headers */,
 				AEA93B2C11D52959000A4545 /* SBJsonWriter.h in Headers */,
+				999104351417BDDF00932829 /* JSONKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +258,7 @@
 				AEA93B2911D52959000A4545 /* SBJsonBase.m in Sources */,
 				AEA93B2B11D52959000A4545 /* SBJsonParser.m in Sources */,
 				AEA93B2D11D52959000A4545 /* SBJsonWriter.m in Sources */,
+				999104361417BDDF00932829 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
