@@ -311,6 +311,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
     [request setHTTPBody:[self generatePostBody]];
   }
 
+  self.responseText = [NSMutableData data];    
   _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
   self.state = kFBRequestStateLoading;
 }
@@ -332,7 +333,6 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
 // NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-  _responseText = [[NSMutableData alloc] init];
 
   NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
   if ([_delegate respondsToSelector:
@@ -342,7 +342,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-  [_responseText appendData:data];
+  [self.responseText appendData:data];
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
@@ -351,7 +351,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-  [self handleResponseData:_responseText];
+  [self handleResponseData:self.responseText];
 
   self.responseText = nil;
   self.connection = nil;
