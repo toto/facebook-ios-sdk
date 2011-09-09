@@ -290,7 +290,11 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
  * make the Facebook request
  */
 - (void)connect {
-
+    if (_connection) {
+        NSLog(@"Warning: trying to restart already running request!");
+        return;
+    }
+    
   if ([_delegate respondsToSelector:@selector(requestLoading:)]) {
     [_delegate requestLoading:self];
   }
