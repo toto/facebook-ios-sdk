@@ -29,9 +29,13 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 @interface FBRequest ()
+
 @property (nonatomic,readwrite) FBRequestState state;
+
 @end
 
+
+>>>>>>> background parsing of JSON through GCD
 @implementation FBRequest
 
 @synthesize delegate = _delegate,
@@ -102,6 +106,17 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
   NSString* query = [pairs componentsJoinedByString:@"&"];
 
   return [NSString stringWithFormat:@"%@%@%@", baseUrl, queryPrefix, query];
+}
+
+- (id)init;
+{
+	self = [super init];
+	
+	if (self) {
+		_parseQueue = dispatch_queue_create("com.facebook.JSONParseQueue", NULL);
+	}
+	
+	return self;
 }
 
 /**
@@ -199,8 +214,9 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
     return nil;
   }
 
-
-  id result = [decoder objectWithData:data];
+	NSError *parseError = nil;
+  id result = [decoder objectWithData:data error:&parseError];
+	
 
   if (![result isKindOfClass:[NSArray class]]) {
     if ([result objectForKey:@"error"] != nil) {
@@ -269,7 +285,6 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
         @selector(request:didLoad:)]) {
       [_delegate request:self didLoad:(result == nil ? data : result)];
     }
-
   }
 
 }
@@ -331,6 +346,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
   [_url release];
   [_httpMethod release];
   [_params release];
+  dispatch_release(_parseQueue);
   [super dealloc];
 }
 
