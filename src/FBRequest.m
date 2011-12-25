@@ -215,7 +215,11 @@ static const NSTimeInterval kTimeoutInterval = 45.0;
   }
 
 	NSError *parseError = nil;
-  id result = [decoder objectWithData:data error:&parseError];
+	id result = nil;
+	if (data) {
+		result = [decoder objectWithData:data error:&parseError];
+	}
+
 	
 
   if (![result isKindOfClass:[NSArray class]]) {
