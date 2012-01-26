@@ -31,11 +31,11 @@ static const NSTimeInterval kTimeoutInterval = 45.0;
 @interface FBRequest ()
 
 @property (nonatomic,readwrite) FBRequestState state;
+@property (nonatomic,assign,readwrite) dispatch_queue_t parseQueue;
 
 @end
 
 
->>>>>>> background parsing of JSON through GCD
 @implementation FBRequest
 
 @synthesize delegate = _delegate,
@@ -45,7 +45,8 @@ static const NSTimeInterval kTimeoutInterval = 45.0;
             connection = _connection,
             responseText = _responseText,
             state = _state,
-            error = _error;
+            error = _error,
+            parseQueue = _parseQueue;
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // class public
 
