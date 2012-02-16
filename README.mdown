@@ -5,6 +5,11 @@ This open source iOS library allows you to integrate Facebook into your iOS appl
 
 Except as otherwise noted, the Facebook iOS SDK is licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
 
+Changes in this fork
+===================
+
+ - Get rid of SBJSON and use iOS 5 JSON parser
+
 Getting Started
 ===============
 
