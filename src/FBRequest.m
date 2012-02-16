@@ -202,7 +202,7 @@ static const NSTimeInterval kTimeoutInterval = 45.0;
   NSString* responseString = [[[NSString alloc] initWithData:data
                                                     encoding:NSUTF8StringEncoding]
                               autorelease];
-  JSONDecoder *decoder  = [JSONDecoder decoderWithParseOptions:JKParseOptionValidFlags];
+
   
   if ([responseString isEqualToString:@"true"]) {
     return [NSDictionary dictionaryWithObject:@"true" forKey:@"result"];
@@ -219,7 +219,9 @@ static const NSTimeInterval kTimeoutInterval = 45.0;
 	NSError *parseError = nil;
 	id result = nil;
 	if (data) {
-		result = [decoder objectWithData:data error:&parseError];
+		result = [NSJSONSerialization JSONObjectWithData:data
+                                                 options:0
+                                                   error:&parseError];
 	}
 
 	
